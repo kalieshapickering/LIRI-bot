@@ -36,10 +36,10 @@ function spotifySong(song){
     }
     spotify.search({ type: 'track', query: query }, function(err, data){
         if (err) throw err;
-        console.log(data.tracks.items[0].artists[0].name);
-        console.log(data.tracks.items[0].name);
-        console.log(data.tracks.items[0].external_urls.spotify);
-        console.log(data.tracks.items[0].album.name);
+        console.log("Artists: " + data.tracks.items[0].artists[0].name);
+        console.log("Track Name: " + data.tracks.items[0].name);
+        console.log("Spotify Link: " + data.tracks.items[0].external_urls.spotify);
+        console.log("Album: " + data.tracks.items[0].album.name);
 
     });
 };
@@ -50,14 +50,14 @@ function movie(title){
             console.log(err)
         } else {
             var body = JSON.parse(body);
-            console.log(body.Title);
-            console.log(body.Year);
-            console.log(body.Ratings[1].Value);
-            console.log(body.imdbRating);
-            console.log(body.Country);
-            console.log(body.Language);
-            console.log(body.Plot);
-            console.log(body.Actors);
+            console.log("Movie Title: " + body.Title);
+            console.log("Year Movie Released: " + body.Year);
+            console.log("Rotten Tomates Rating: " + body.Ratings[1].Value);
+            console.log("IMDB Rating: " + body.imdbRating);
+            console.log("Orign: " + body.Country);
+            console.log("Language: " + body.Language);
+            console.log("Movie Plot: " + body.Plot);
+            console.log("Actors: " + body.Actors);
         }
     });
 };
@@ -67,9 +67,9 @@ function concert(artist){
         if (err) throw err;
     
         var body = JSON.parse(body);
-        console.log(body[0].venue.name);
-        console.log(body[0].venue.city + " " + body[0].venue.region);
-        console.log(body[0].datetime);
+        console.log("Venue Name: " + body[0].venue.name);
+        console.log("Venue Location: " + body[0].venue.city + " " + body[0].venue.region);
+        console.log("Concert Date: " + body[0].datetime);
     });
 };
 
@@ -85,5 +85,4 @@ function doWhatItSays(searchterm, queryterm) {
         }
     });
 };
-
 
